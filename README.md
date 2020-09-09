@@ -1,4 +1,4 @@
-# Repro for hydrate flicker issue with react-imported-component
+# Repro for a hydrate flicker issue with react-imported-component
 
 To run:
 
