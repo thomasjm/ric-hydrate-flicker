@@ -2,13 +2,11 @@
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
     "react-imported-component/babel",
-    "@babel/plugin-proposal-dynamic-import",
-    "@babel/plugin-transform-modules-commonjs"
+    "babel-plugin-dynamic-import-node"
   ],
   "env": {
     "client": {
       "plugins": [
-        "react-hot-loader/babel",
         "react-imported-component/babel"
       ]
     }
