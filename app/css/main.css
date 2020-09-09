@@ -1,0 +1,8 @@
+
+/* See https://github.com/mui-org/material-ui/issues/13053 */
+input[type="text"] { box-sizing: content-box !important; }
+input[type="password"] { box-sizing: content-box !important; }
+
+.landing-header {
+    transition: all 0.5s ease;
+}

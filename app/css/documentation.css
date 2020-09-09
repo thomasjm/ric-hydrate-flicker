@@ -1,0 +1,68 @@
+
+.documentation {
+    font-size: 0.8em;
+}
+
+.documentation h1,
+.documentation h2,
+.documentation h3,
+.documentation h4,
+.documentation h5 {
+    font-weight: normal;
+    line-height: 1.1em;
+}
+
+.documentation h1 {
+    font-size: 2em;
+}
+
+.documentation h2 {
+    font-size: 1.5em;
+}
+
+.documentation h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.documentation h4 {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.documentation h5 {
+    font-size: 1.1em;
+    font-style: italic;
+}
+
+.documentation video,
+.documentation img {
+    border: solid 1.3px #C0C0C0;
+}
+.documentation video:focus {
+    outline: 0;
+}
+
+.documentation a:link,
+.documentation-tree .selected-link {
+    color: #4285f4;
+}
+
+.documentation blockquote {
+  color: #666;
+  margin: 0;
+  padding-left: 3em;
+  border-left: 0.5em #eee solid;
+}
+
+/*
+   The goal of this rule is to match block images, since they won't otherwise get centered.
+   Alternatively, we could possibly make this happen in react-markdown.
+   Or, just write HTML instead of Markdown for images. Use either this margin approach or an
+   enclosing div with text-align: center.
+*/
+.documentation p > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
