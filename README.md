@@ -3,6 +3,7 @@
 To run:
 
 ```bash
+git clone git@github.com:thomasjm/ric-hydrate-flicker.git
 npm install
 npm run build
 PORT=1222 npm run start
