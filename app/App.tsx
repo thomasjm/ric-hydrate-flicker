@@ -19,6 +19,8 @@ export function renderPage<P>(Component: React.FunctionComponent<P>, props?: P) 
   );
 }
 
+const Simple = lazy(() => import("./pages/simple"));
+
 export default function App() {
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
@@ -29,7 +31,7 @@ export default function App() {
 
   return (
     <>
-        {renderPage(lazy(() => import("./pages/simple")))()}
+        {renderPage(Simple)()}
     </>
   );
 }
