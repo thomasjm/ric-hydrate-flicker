@@ -12,7 +12,7 @@
     "format": "prettier-standard 'app/**/*.js' 'app/**/*.jsx' 'server/**/*.js' --format",
     "build": "rimraf dist && npm run generate-imported-components && npm run create-bundles && cp -r app/static ./dist",
     "create-bundles": "concurrently \"npm run create-bundle:client\" \"npm run create-bundle:server\"",
-    "create-bundle:client": "cross-env BABEL_ENV=client parcel build app/index.html -d dist/client --no-source-maps --no-minify --public-url /dist/client",
+    "create-bundle:client": "cross-env BABEL_ENV=client NODE_ENV=development parcel build app/index.html -d dist/client --no-source-maps --no-minify --public-url /dist/client",
     "create-bundle:server": "cross-env BABEL_ENV=server parcel build server/index.tsx -d dist/server --no-source-maps --no-minify --public-url /dist/client --target=node --bundle-node-modules",
     "create-bundle:client:no-minify": "cross-env BABEL_ENV=client parcel build app/index.html -d dist/client --no-source-maps --no-minify --public-url /dist/client",
     "create-bundle:server:no-minify": "cross-env BABEL_ENV=server parcel build server/index.tsx -d dist/server --no-source-maps --no-minify --public-url /dist/client --target=node --bundle-node-modules",
