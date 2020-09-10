@@ -51,7 +51,10 @@ setTimeout(function () {
     console.log("loaded...");
     setTimeout(function () {
       console.log("hydrating");
+
+      console.log('before', element.innerHTML);
       ReactDOM.hydrate(app, element);
+      console.log('after', element.innerHTML);
     }, TM);
   });
 }, TM);
