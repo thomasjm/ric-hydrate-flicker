@@ -1,37 +1,22 @@
 
 import * as React from "react";
 import {Switch, Route, useLocation} from "react-router-dom";
-import {lazy, LazyBoundary} from "react-imported-component";
+import {lazy, LazyBoundary, useImported} from "react-imported-component";
 
 import "regenerator-runtime/runtime";
 
-// TODO: can't seem to import CSS from node_modules because prod build gets
-// "SyntaxError: Unexpected token {" when loading it
-// import "tachyons/css/tachyons.min.css";
-import "./css/tachyons.min.css";
-import "./css/main.css";
+function importPage<P>(importFn: () => React.FunctionComponent<P>, props?: P) {
+  const { imported, loading } = useImported(importFn);
 
-export function renderPage<P>(Component: React.FunctionComponent<P>, props?: P) {
-  return () => (
-    <LazyBoundary fallback={<div />}>
-        <Component {...(props ? props : ({} as any))} />
-    </LazyBoundary>
-  );
+  return loading ? <div /> : <imported {...props} />;
 }
 
-const Simple = lazy(() => import("./pages/simple"));
+const Simple = importPage(() => import("./pages/simple"));
 
 export default function App() {
-  React.useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  }, []);
-
   return (
     <>
-        {renderPage(Simple)()}
+        <Simple />
     </>
   );
 }
