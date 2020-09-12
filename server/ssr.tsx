@@ -91,7 +91,7 @@ export default async function ssr(req, res) {
     let fullHtml = fs.readFileSync(htmlPath).toString();
     fullHtml = fullHtml.replace("<!--META-->", `<script>window.__APOLLO_STATE__ = ${JSON.stringify(initialState)};</script>\n<style id="jss-server-side">${css}</style>\n`)
     fullHtml = fullHtml.replace("<!--MARKS-->", printDrainHydrateMarks() + "\n");
-    fullHtml = fullHtml.replace(`<div id="app">`, `\n<div id="app">${html}\n`)
+    fullHtml = fullHtml.replace(`<div id="app">`, `\n<div id="app">${html}`)
 
     res.write(fullHtml);
     res.end();
